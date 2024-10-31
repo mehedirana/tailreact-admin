@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
+import Loader from './components/common/Loader/Loader';
 
 const App = () => {
   const [loading, setLoading] = useState(false)
@@ -14,11 +15,13 @@ const App = () => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  return loading ? 'sds' : (
-    <div className="bg-red-500">
-      kjwdhj kjw qk
-    </div>
-  );
+  return loading ?
+    <Loader />
+    : (
+      <div className="bg-red-500">
+        kjwdhj kjw qk
+      </div>
+    );
 }
 
 export default App;
