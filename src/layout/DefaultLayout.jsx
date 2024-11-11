@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
 
 const DefaultLayout = ({ children }) => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
     return (
         <div className=' dark:bg-boxdark-2 dark:text-body'>
             {/* page wrapper start */}
             <div className=' flex h-screen overflow-hidden'>
                 {/* sidebar */}
-                <div className=' bg-gray-500 w-45'>siderbar</div>
+                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 {/* content area start */}
                 <div className='flex flex-1 flex-col overflow-y-auto overflow-x-hidden'>
                     {/* header  */}
-                    <div className=' bg-blue-500 h-13'>header</div>
+                    <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
                     <main className='mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10'>
                         <div>
