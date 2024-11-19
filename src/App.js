@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
 // import { useLocation } from 'react-router-dom';
 import './App.css';
+import { useEffect, useState } from 'react';
 import Loader from './components/common/Loader/Loader';
 import DefaultLayout from './layout/DefaultLayout';
+import { Route, Routes } from 'react-router-dom';
+import Calendar from './pages/Calendar';
+import PageTitle from './components/PageTitle';
 
 
 
@@ -23,9 +26,19 @@ const App = () => {
     <Loader />
     : (
       <DefaultLayout>
-        <div className="bg-red-500">
-          kjwdhj kjw qk
-        </div>
+        <Routes>
+          <Route
+            path='/calendar'
+            element={
+              <>
+                <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+                <Calendar />
+              </>
+            }
+          >
+
+          </Route>
+        </Routes>
       </DefaultLayout>
     );
 }
